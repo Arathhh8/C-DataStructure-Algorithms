@@ -58,11 +58,18 @@ typedef struct ListNode{
 ListNode* createNode(int value);
 void insertAtEnd(ListNode** head, int value);
 void deleteNode(ListNode** head,  int value);
+void printListNode(ListNode* head);
 
 int main (void){
 
-    createNode();
-    createNode();
+    ListNode* head = NULL;
+
+    insertAtEnd(&head, 5);
+    insertAtEnd(&head, 4);
+    insertAtEnd(&head, 7);
+    printListNode(head);
+    deleteNode(&head, 6);
+    printListNode(head);
     
     return 0;
 }
@@ -84,15 +91,62 @@ ListNode* createNode(int value){
 void insertAtEnd(ListNode** head, int value){
 
     ListNode* newNode = createNode(value);
+    ListNode* current = *head;
+    
     if(*head == NULL){
         *head = newNode;
         return;
     }
-    ListNode* current = *head;
+
     while(current->next != NULL){
         current = current->next;
     }
     current->next = newNode;
+}
+
+void deleteNode(ListNode** head,  int value){
+
+    if (*head == NULL) {
+        return;
+    }
+
+    ListNode* current = *head;
+    ListNode* previous = NULL;
+
+     // Si el nodo a eliminar es el primero
+    if (current != NULL && current->value == value) {
+        *head = current->next;
+        free(current);
+        return;
+    }
+
+    // Buscar el nodo a eliminar
+    while (current != NULL && current->value != value) {
+        previous = current;
+        current = current->next;
+    }
+
+    // Si no se encuentra el valor
+    if (current == NULL) {
+        printf("Node was not found\n");
+        return;
+    }
+
+    // Eliminar el nodo
+    previous->next = current->next;
+    free(current);
+    
+}
+
+void printListNode(ListNode* head){
+
+    ListNode* p = head;
+
+    while(p != NULL){
+        printf("\t%d->",p->value);
+        p = p->next;
+    }
+    printf("\n");
 }
 
 
