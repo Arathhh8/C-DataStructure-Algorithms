@@ -35,7 +35,13 @@ typedef struct ListNode{
 ListNode* createNode(int val);
 
 // Funcion para agregar un nodo al final de la lista
+void createAtInit(ListNode** head, int val);
+
+// Funcion para agregar un nodo al final de la lista
 void createAtEnd(ListNode** head, int val);
+
+// Funcion para eliminar un nodo por valor
+void deleteNodeByValue(ListNode** head, int val);
 
 // Imprir la lista completa
 void printList(ListNode* head);
@@ -47,11 +53,18 @@ int main(void){
     createAtEnd(&head, 1);
     createAtEnd(&head, 2);
     createAtEnd(&head, 3);
+    deleteNodeByValue(&head, 2);
 
     printList(head);
 
     createAtEnd(&head, 4);
     
+    printList(head);
+
+    createAtInit(&head, 5);
+    createAtInit(&head, 6);
+    createAtInit(&head, 7);
+
     printList(head);
 
 
@@ -74,6 +87,23 @@ ListNode* createNode(int val){
 
 }
 
+void createAtInit(ListNode** head, int val){
+    ListNode* newNode = createNode(val);
+    ListNode* current = *head;
+
+    // si la lista esta vacia, agregar el primer elemento
+    if(*head == NULL){
+        *head = newNode;
+        return;
+    }
+
+    // si la lista no esta vacia, agregar un elemento al inicio
+    newNode->next = *head;
+
+    *head = newNode;
+
+}
+
 void createAtEnd(ListNode** head, int val){
 
     ListNode* newNode = createNode(val);
@@ -92,6 +122,42 @@ void createAtEnd(ListNode** head, int val){
     }
 
     current->next = newNode;
+}
+// 1 -> 2 -> 3 -> 4 -> NULL
+// eliminar 3: 
+void deleteNodeByValue(ListNode** head, int val){
+
+    ListNode* current = *head;
+    ListNode* previous = NULL;
+
+    // si la lista esta vacia, no existe nodo a eliminar
+    if(*head == NULL){
+        printf("Lista vacia");
+        return;
+    }
+
+    // Si el elemento a eliminares el primero
+    if(current->value == val && current != NULL){
+        *head = current->next;
+        printf("Elemento eliminado\n");
+        free(current);
+        return;
+    }
+
+    // Buscar el nodo a eliminar
+    while (current != NULL && current->value != val) {
+        previous = current;
+        current = current->next;
+    }
+
+    // Si no se encuentra el valor
+    if (current == NULL) {
+        printf("Node was not found\n");
+        return;
+    }
+
+    previous->next = current->next;
+    free(current);
 }
 
 void printList(ListNode* head){
