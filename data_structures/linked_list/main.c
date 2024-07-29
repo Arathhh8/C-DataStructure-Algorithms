@@ -1,25 +1,29 @@
 /*
-Ejercicio: Implementación básica de una lista enlazada
+Exercise: Basic Implementation of a Linked List
 
-Definición de la estructura:
-Define una estructura Nodo que contenga un entero y un puntero al siguiente nodo.
-Función para crear un nuevo nodo:
-Implementa una función que cree un nuevo nodo con un valor entero dado y que devuelva un puntero a este nodo.
-Función para agregar un nodo al principio de la lista:
-Implementa una función que tome un valor entero y un puntero al primer nodo de la lista, y agregue un nuevo nodo al principio de la lista.
-Función para imprimir la lista:
-Implementa una función que imprima todos los valores de los nodos de la lista enlazada desde el primero hasta el último.
-Tareas:
+Definition of the Structure:
+Define a Node structure that contains an integer and a pointer to the next node.
 
-Define la estructura Nodo.
-Escribe una función para crear un nuevo nodo.
-Escribe una función para agregar un nodo al principio de la lista.
-Escribe una función para imprimir todos los nodos de la lista.
-Ejemplo de uso:
+Function to Create a New Node:
+Implement a function that creates a new node with a given integer value and returns a pointer to this node.
 
-Crear una lista enlazada vacía.
-Agregar algunos nodos al principio de la lista con valores 10, 20 y 30.
-Imprimir la lista resultante.
+Function to Add a Node to the Beginning of the List:
+Implement a function that takes an integer value and a pointer to the first node of the list, and adds a new node to the beginning of the list.
+
+Function to Print the List:
+Implement a function that prints all the values of the nodes in the linked list from the first to the last.
+
+Tasks:
+
+Define the Node structure.
+Write a function to create a new node.
+Write a function to add a node to the beginning of the list.
+Write a function to print all the nodes in the list.
+Example Usage:
+
+Create an empty linked list.
+Add some nodes to the beginning of the list with values 1, 2, and 3.
+Print the resulting list.
 */
 #include<stdio.h>
 #include<stdlib.h>
