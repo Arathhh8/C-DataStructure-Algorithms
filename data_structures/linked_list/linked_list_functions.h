@@ -22,7 +22,6 @@ typedef struct ListNode
     struct ListNode* next;    /**< Pointer to the next node in the list */
 } ListNode;
 
-
 /**
  * @brief Creates a new node that points to the next node in the list.
  * 
@@ -68,10 +67,5 @@ void printList(ListNode* head);
  * @param head A pointer to the head of the list.
  */
 void deleteFirstNode(ListNode** head);
-
-
-
-
-
 
 #endif /* INC_LINKED_LIST_FUNCTIONS_H_ */
