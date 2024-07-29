@@ -68,4 +68,14 @@ void printList(ListNode* head);
  */
 void deleteFirstNode(ListNode** head);
 
+/**
+ * @brief Finds a node by value.
+ * 
+ * This function 
+ * 
+ * @param head A pointer to the head of the list.
+ * @param val
+ */
+void findNodeByValue(ListNode** head, int val);
+
 #endif /* INC_LINKED_LIST_FUNCTIONS_H_ */
