@@ -38,5 +38,9 @@ int main(void){
 
     printList(head);
 
+    deleteFirstNode(&head);
+
+    printList(head);
+
     return 0;
 }

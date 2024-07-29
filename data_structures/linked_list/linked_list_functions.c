@@ -35,12 +35,13 @@ ListNode* createNode(int val)
  * @param head A pointer to the pointer to the head of the list.
  * @param val The value to be added to the new node.
  */
-void createNodeAtEnd(ListNode** head, int val){
-
+void createNodeAtEnd(ListNode** head, int val)
+{
     ListNode* newNode = createNode(val);
 
     // Check if the list is empty. 
-    if(*head == NULL){
+    if(*head == NULL)
+    {
         *head = newNode;
         return;
     }
@@ -48,7 +49,8 @@ void createNodeAtEnd(ListNode** head, int val){
     ListNode* current = *head;
 
     // Go throught the last node in the list.
-    while(current->next != NULL){
+    while(current->next != NULL)
+    {
         current = current->next;
     }
 
@@ -70,6 +72,7 @@ void printList(ListNode* head)
     if(head == NULL)
     {
         printf("List is empty.\n");
+        return;
     }
 
     ListNode* current = head;
@@ -82,4 +85,28 @@ void printList(ListNode* head)
     }
 
     printf("NULL\n");
+}
+
+/**
+ * @brief Deletes the first node of the linked list.
+ * 
+ * This function removes the first node of the list and adjusts the
+ * head pointer to the second node. The memory of the deleted node is
+ * freed.
+ * 
+ * @param head A pointer to the pointer to the head of the list.
+ */
+void deleteFirstNode(ListNode** head)
+{
+    // Checks if the list is empty.
+    if(*head == NULL)
+    {
+        printf("List is empty.\n");
+        return;
+    }
+
+    ListNode* current = *head;
+
+    *head = current->next;
+    free(current);
 }

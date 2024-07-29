@@ -58,6 +58,20 @@ void createNodeAtEnd(ListNode** head, int val);
  */
 void printList(ListNode* head);
 
+/**
+ * @brief Deletes first node in the list.
+ * 
+ * This function traverses the linked list starting from the head node
+ * and prints the value of each node. If the list is empty, it prints
+ * a message indicating that the list is empty.
+ * 
+ * @param head A pointer to the head of the list.
+ */
+void deleteFirstNode(ListNode** head);
+
+
+
+
 
 
 #endif /* INC_LINKED_LIST_FUNCTIONS_H_ */
