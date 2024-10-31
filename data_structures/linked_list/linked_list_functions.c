@@ -117,8 +117,19 @@ void deleteFirstNode(ListNode** head)
  * This function 
  * 
  * @param head A pointer to the head of the list.
- * @param val
+ * @param val  A value to find
+ * 
+ * @return ListNode* A pointer to a found node.
  */
-void findNodeByValue(ListNode** head, int val){
-    // TODO
+ListNode* findNodeByValue(ListNode* head, int val) 
+{
+    ListNode* current = head;
+
+    while (current != NULL) {
+        if (current->val == val) {
+            return current;
+        }
+        current = current->next;
+    }
+    return NULL;  // Node with the given value was not found.
 }
