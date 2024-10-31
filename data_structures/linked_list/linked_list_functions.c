@@ -110,3 +110,26 @@ void deleteFirstNode(ListNode** head)
     *head = current->next;
     free(current);
 }
+
+/**
+ * @brief Finds a node by value.
+ * 
+ * This function 
+ * 
+ * @param head A pointer to the head of the list.
+ * @param val  A value to find
+ * 
+ * @return ListNode* A pointer to a found node.
+ */
+ListNode* findNodeByValue(ListNode* head, int val) 
+{
+    ListNode* current = head;
+
+    while (current != NULL) {
+        if (current->val == val) {
+            return current;
+        }
+        current = current->next;
+    }
+    return NULL;  // Node with the given value was not found.
+}
